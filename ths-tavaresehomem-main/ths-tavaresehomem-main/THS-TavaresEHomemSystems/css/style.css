@@ -1,0 +1,253 @@
+/* Definição do nosso Design System (Paleta de Cores THS) */
+:root {
+    --ths-verde-musgo: #2e472d; 
+    --ths-azul-neon: #00f3ff;
+    --ths-branco: #ffffff;
+    --ths-preto: #121212;
+}
+
+/* Reset básico para garantir que o site se comporte igual em todos os navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--ths-preto); /* Usando fundo escuro para destacar o neon e o verde */
+    color: var(--ths-branco);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* --- ESTRUTURA DO MENU --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #050505; 
+    border-bottom: 2px solid var(--ths-verde-musgo);
+}
+
+.logo h1 {
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+/* Efeito luminoso no logo */
+.neon-text {
+    color: var(--ths-azul-neon);
+    text-shadow: 0 0 8px var(--ths-azul-neon);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--ths-branco);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease; /* Prepara o elemento para uma animação suave */
+}
+
+/* --- ANIMAÇÕES INTERATIVAS (HOVER) --- */
+.nav-links a:hover, .nav-links a.active {
+    background-color: var(--ths-azul-neon);
+    color: var(--ths-preto);
+    box-shadow: 0 0 15px var(--ths-azul-neon); /* Brilho interativo */
+    transform: translateY(-3px); /* Faz o botão "pular" levemente */
+}
+/* --- HERO SECTION --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    padding: 0 50px;
+    text-align: center;
+}
+
+.hero-content p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- ANIMAÇÃO DE TERMINAL --- */
+.terminal-container {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    background-color: #000;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--ths-verde-musgo);
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+}
+
+.prefix {
+    color: var(--ths-verde-musgo);
+    font-weight: bold;
+}
+
+.typing-text {
+    color: var(--ths-azul-neon);
+    border-right: 3px solid var(--ths-azul-neon); /* O Cursor */
+    white-space: nowrap;
+    animation: blinkCursor 0.75s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--ths-azul-neon); }
+}
+
+/* --- BOTÃO DE AÇÃO --- */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--ths-verde-musgo);
+    color: var(--ths-branco);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border: 1px solid var(--ths-azul-neon);
+    color: var(--ths-azul-neon);
+    box-shadow: 0 0 10px var(--ths-azul-neon);
+}
+//ADESÃO PARA product.html
+/* =========================================
+   MÓDULO: PRODUTOS E SERVIÇOS
+========================================= */
+
+.container-produtos {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.produtos-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.produtos-header h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.produtos-header p {
+    color: #ddd;
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Sistema de Grid Responsivo */
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+/* Design dos Cartões de Venda */
+.produto-card {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--ths-verde-musgo);
+    box-shadow: 0 10px 25px rgba(46, 71, 45, 0.5); /* Brilho Verde Musgo */
+}
+
+/* Estratégia Visual para o Serviço Mais Vendido */
+.produto-card.destaque {
+    border-color: var(--ths-azul-neon);
+    position: relative;
+    transform: scale(1.02); /* Leve expansão para chamar atenção */
+}
+
+.produto-card.destaque::before {
+    content: 'Recomendado';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--ths-azul-neon);
+    color: var(--ths-preto);
+    padding: 6px 20px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.produto-card.destaque:hover {
+    box-shadow: 0 10px 25px rgba(0, 243, 255, 0.25); /* Brilho Azul Neon */
+}
+
+.produto-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.produto-card h3 {
+    color: var(--ths-branco);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.produto-card p {
+    color: #bbb;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.produto-features {
+    list-style: none;
+    margin-bottom: 35px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.produto-features li {
+    font-size: 15px;
+    margin-bottom: 12px;
+    color: #e0e0e0;
+}
+
+.produto-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--ths-verde-musgo);
+    margin-top: auto; /* Empurra o preço e o botão para o fundo do card */
+    margin-bottom: 25px;
+}
+
+.produto-card.destaque .produto-price {
+    color: var(--ths-azul-neon);
+}
